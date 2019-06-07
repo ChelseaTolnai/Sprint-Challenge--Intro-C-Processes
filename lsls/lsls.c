@@ -24,9 +24,11 @@ int main(int argc, char **argv)
   } 
 
   // Repeatly read and print entries
-  // struct dirent *ent;
-  // ent = readdir(path);
-  // printf("%s\n", ent->d_name);
+  struct dirent *ent;
+
+  while ((ent = readdir(d)) != NULL) {
+    printf("%s\n", ent->d_name);
+  }
 
 
   // Close directory
