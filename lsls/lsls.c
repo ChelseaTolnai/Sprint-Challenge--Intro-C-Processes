@@ -17,13 +17,17 @@ int main(int argc, char **argv)
   printf("%s\n", path);
 
   // Open directory
-  DIR *opendir(const char *path);
-  if (&opendir == NULL) {
+  DIR *d = opendir(path);
+  if (d == NULL) {
     fprintf(stderr, "Error opening directory.\n");
     exit(1);
   } 
 
   // Repeatly read and print entries
+  // struct dirent *ent;
+  // ent = readdir(path);
+  // printf("%s\n", ent->d_name);
+
 
   // Close directory
 
