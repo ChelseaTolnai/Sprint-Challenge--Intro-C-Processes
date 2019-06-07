@@ -29,7 +29,12 @@ int main(int argc, char **argv)
   while ((ent = readdir(d)) != NULL) {
     char *file_name = ent->d_name;
     stat(file_name, &buf);
-    printf("%10lld  %s\n", buf.st_size, file_name);
+    
+    if ((buf.st_mode & S_IFDIR) != 0) {
+      printf("%10s  %s\n", "<DIR>", file_name);
+    } else {
+      printf("%10lld  %s\n", buf.st_size, file_name);
+    }
   }
 
   // Close directory
